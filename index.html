@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  
+
   <label for="bookReviewTextarea">Enter your book review:</label>
   <textarea id="bookReviewTextarea" rows="5" cols="50"></textarea>
   <button id="displayReviewButton">Display Book Review</button>
@@ -19,7 +19,12 @@
   <textarea id="bioTextarea" rows="5" cols="50"></textarea>
   <button id="displayBioBtn">Display Styled Bio</button>
   <p id="displayBioResult"></p>
-  
+
+  <label for="diaryTextarea">Entry your personal diary entry:</label>
+  <textarea id="diaryTextarea" rows="5" cols="50"></textarea>
+  <button id="displayDiaryBtn">Display Diary Entry</button>
+  <p id="displayDiaryEntry"></p>
+
   <script>
 
     //display book review
@@ -27,7 +32,7 @@
     const displayReviewButton = document.getElementById("displayReviewButton");
     const displayReviewResult = document.getElementById("displayReviewResult");
 
-    displayReviewButton.addEventListener("click", function (){
+    displayReviewButton.addEventListener("click", function () {
       const review = bookReviewTextarea.value;
       displayReviewResult.textContent = `Your book review: ${review}`;
     });
@@ -37,13 +42,25 @@
     const displayBioBtn = document.getElementById("displayBioBtn");
     const displayBioResult = document.getElementById("displayBioResult");
 
-    displayBioBtn.addEventListener("click", function(){
+    displayBioBtn.addEventListener("click", function () {
       const bio = bioTextarea.value;
       displayBioResult.innerHTML = `<em>${bio}</em>`
     });
 
-    //
-    
+    //display personal diary entry
+    const diaryTextarea = document.getElementById("diaryTextarea");
+    const displayDiaryBtn = document.getElementById("displayDiaryBtn");
+    const displayDiaryEntry = document.getElementById("displayDiaryEntry");
+
+    displayDiaryBtn.addEventListener("click", function () {
+      const diaryEntry = diaryTextarea.value;
+      const currentDateTime = new Date().toLocaleString();
+
+      displayDiaryEntry.innerHTML = `<h3>${currentDateTime}</h3>
+      <br>
+      ${diaryEntry}`;
+    });
+
   </script>
 </body>
 
