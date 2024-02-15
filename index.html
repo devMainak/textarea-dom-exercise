@@ -9,8 +9,8 @@
 
 <body>
   
-  <label for="">Enter your book review:</label>
-  <textarea id="bookReviewTextarea"></textarea>
+  <label for="bookReviewTextarea">Enter your book review:</label>
+  <textarea id="bookReviewTextarea" rows="5" cols="50"></textarea>
   <button id="displayReviewButton">Display Book Review</button>
   <p id="displayReviewResult"></p>
   
@@ -18,6 +18,14 @@
   <script>
 
     //display book review
+    const bookReviewTextarea = document.getElementById("bookReviewTextarea");
+    const displayReviewButton = document.getElementById("displayReviewButton");
+    const displayReviewResult = document.getElementById("displayReviewResult");
+
+    displayReviewButton.addEventListener("click", function (){
+      const review = bookReviewTextarea.value;
+      displayReviewResult.textContent = `Your book review: ${review}`;
+    });
     
   </script>
 </body>
